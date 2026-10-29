@@ -1,0 +1,6 @@
+public/
+__pycache__/
+.playwright-cli/
+.impeccable/review/
+.impeccable/live/
+.DS_Store
