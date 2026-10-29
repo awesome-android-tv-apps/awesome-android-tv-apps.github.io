@@ -93,3 +93,5 @@ Metin elle yazılır ve `build.py --check` şu kalıpları reddeder: uzun tire v
 ## Yayın
 
 GitHub org `awesome-android-tv-apps`, repo `awesome-android-tv-apps.github.io` (public), Pages kaynağı GitHub Actions (`.github/workflows/pages.yml`). Yerel önizleme: `python3 build.py && python3 -m http.server 8095 --bind 192.168.1.66 -d public`.
+
+Search Console: mülk `https://awesome-android-tv-apps.github.io/` dosya yöntemiyle doğrulanır (`static/google3d1276421bb1c9bf.html`). Bu dosya silinirse doğrulama düşer. Sitemap: `https://awesome-android-tv-apps.github.io/sitemap.xml`.
