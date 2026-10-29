@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reblucky Android TV apps site generator. Standard library only.
+"""Awesome Android TV Apps site generator. Standard library only.
 
     python3 build.py            write public/
     python3 build.py --check    write public/, then enforce SITE-SPEC.md (exit 1 on any error)
@@ -48,6 +48,33 @@ ARROW = (
     '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">'
     '<path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="2"/></svg>'
 )
+MARK_SVG = (
+    '<svg class="mark" viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" focusable="false">'
+    '<rect class="mark-bg" width="48" height="48" rx="9"/>'
+    '<rect x="9" y="12" width="30" height="5" rx="2.5" fill="#f3f5f7"/>'
+    '<rect x="9" y="21.5" width="30" height="5" rx="2.5" fill="#f3f5f7"/>'
+    '<rect x="9" y="31" width="18" height="5" rx="2.5" fill="#f3f5f7"/>'
+    '<circle class="lamp" cx="35" cy="33.5" r="4" fill="#ff5a1f"/></svg>'
+)
+GA_SRC = "https://www.googletagmanager.com/gtag/js?id={}"
+
+
+def ga_inline(gid: str) -> str:
+    """Body of the inline Google tag script, as Google issues it."""
+    return (
+        "\n  window.dataLayer = window.dataLayer || [];\n"
+        "  function gtag(){dataLayer.push(arguments);}\n"
+        "  gtag('js', new Date());\n"
+        "\n"
+        f"  gtag('config', '{gid}');\n"
+    )
+
+
+def ga_snippet() -> str:
+    gid = SITE.get("ga_id")
+    if not gid:
+        return ""
+    return f'<!-- Google tag (gtag.js) -->\n<script async src="{GA_SRC.format(gid)}"></script>\n<script>{ga_inline(gid)}</script>\n'
 
 
 def esc(s: str) -> str:
@@ -160,7 +187,6 @@ def jsonld(p: dict) -> dict:
             "@id": org_id,
             "name": SITE["publisher"],
             "url": SITE["publisher_url"],
-            "logo": {"@type": "ImageObject", "url": abs_url(SITE["logo"]), "width": 180, "height": 180},
             "sameAs": [SITE["play_developer_url"], SITE["github_org_url"]],
         },
         {
@@ -229,7 +255,7 @@ def jsonld(p: dict) -> dict:
             {
                 "@type": "ItemList",
                 "@id": url + "#apps",
-                "name": "Reblucky Android TV apps",
+                "name": "Android TV apps by Reblucky Software",
                 "itemListElement": [
                     {"@type": "ListItem", "position": i, "name": a["name"], "url": abs_url(page_path(a))}
                     for i, a in enumerate(APPS, 1)
@@ -261,10 +287,11 @@ def head(p: dict) -> str:
     if p["kind"] == "app":
         og_src, og_alt = p["images"]["og"], p["images"]["og_alt"]
     else:
-        og_src, og_alt = SITE["og_home"], "Reblucky Android TV apps: Streamova, Trimo and AirPlay Receiver"
+        og_src, og_alt = SITE["og_home"], "Android TV apps by Reblucky Software: Streamova, Trimo and AirPlay Receiver"
     ow, oh = image_size(og_src)
     robots = "noindex" if p["kind"] == "notfound" else "index,follow,max-image-preview:large"
     canonical = "" if p["kind"] == "notfound" else f'<link rel="canonical" href="{url}">\n'
+    ga = ga_snippet()
     ld = ""
     if p["kind"] != "notfound":
         ld = '<script type="application/ld+json">\n' + json.dumps(jsonld(p), ensure_ascii=False, indent=2).replace("</", "<\\/") + "\n</script>\n"
@@ -273,13 +300,13 @@ def head(p: dict) -> str:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(p['title'])}</title>
+{ga}<title>{esc(p['title'])}</title>
 <meta name="description" content="{esc(p['description'])}">
 <meta name="robots" content="{robots}">
 {canonical}<meta name="theme-color" content="{SITE['theme_color']}">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="{SITE['logo']}">
+<link rel="apple-touch-icon" href="{SITE['touch_icon']}">
 <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM summary">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{esc(SITE['name'])}">
@@ -296,7 +323,8 @@ def head(p: dict) -> str:
 <meta name="twitter:description" content="{esc(p['description'])}">
 <meta name="twitter:image" content="{abs_url(og_src)}">
 <meta name="twitter:image:alt" content="{esc(og_alt)}">
-<link rel="preload" href="/fonts/outfit-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/barlow-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/barlow-semi-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 {ld}</head>
 """
@@ -308,12 +336,12 @@ def header(current: str) -> str:
         return f'<li><a href="{href}"{cur}>{esc(label)}</a></li>'
 
     items = "".join(nav_item(label, href) for label, href in SITE["nav"])
-    logo = img(SITE["brand_logo"], "", lazy=False, dims=(40, 40))
+    logo = MARK_SVG
     return f"""<body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
 <div class="wrap bar">
-<a class="brand" href="/">{logo}<span><span class="brand-name">{esc(SITE['brand'])}</span><span class="brand-sub">{esc(SITE['brand_sub'])}</span></span></a>
+<a class="brand" href="/">{logo}<span class="brand-text"><span class="brand-name">{esc(SITE['brand'])}</span><span class="brand-sub">{esc(SITE['brand_sub'])}</span></span></a>
 <nav aria-label="Main"><ul>{items}</ul></nav>
 </div>
 </header>
@@ -370,6 +398,11 @@ def sections_html(p: dict) -> str:
     return "\n".join(out)
 
 
+def date_row(p: dict) -> str:
+    """Last row of a plate: the date code, like the date field on a rating label."""
+    return f'<div><dt>Updated</dt><dd><time datetime="{p["updated"]}">{pretty_date(p["updated"])}</time></dd></div>'
+
+
 def render_home(p: dict) -> str:
     tiles = []
     for a in APPS:
@@ -394,11 +427,14 @@ def render_home(p: dict) -> str:
         for a in APPS
     )
     rows.append(f'<tr><th scope="row">Get it</th>{dl_cells}</tr>')
+    hero_rows = "".join(f"<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>" for k, v in p["hero_facts"]) + date_row(p)
     return f"""<main id="main">
-<section class="hero wrap">
+<section class="hero hero-home wrap">
+<div class="hero-copy">
 <h1>{esc(p['h1'])}</h1>
 <div class="lead">{p['lead']}</div>
-<div class="note">{p['note']}</div>
+</div>
+<aside class="hero-plate" aria-label="Who publishes this site"><dl class="facts">{hero_rows}</dl></aside>
 </section>
 <section class="wrap" aria-labelledby="apps-h">
 <h2 id="apps-h" class="sr">{esc(p['tiles_heading'])}</h2>
@@ -437,7 +473,7 @@ def more_html(p: dict) -> str:
 
 
 def render_app(p: dict) -> str:
-    facts = "".join(f"<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>" for k, v in p["facts"])
+    facts = "".join(f"<div><dt>{esc(k)}</dt><dd>{esc(v)}</dd></div>" for k, v in p["facts"]) + date_row(p)
     chips = "".join(f"<li>{esc(c)}</li>" for c in p["chips"])
     return f"""<main id="main" style="--app:{p['accent']}">
 <nav class="crumbs wrap" aria-label="Breadcrumb"><ol><li><a href="/">{esc(SITE['name'])}</a></li><li><span aria-current="page">{esc(p['name'])}</span></li></ol></nav>
@@ -576,7 +612,7 @@ def page_markdown(p: dict) -> str:
         out += [f"Google Play: {p['play_url']}", f"Official website: {p['official_url']}", f"Privacy policy: {p['privacy_url']}", ""]
         out += [f"## {p['name']} at a glance", ""] + [f"- {k}: {v}" for k, v in p["facts"]] + [""]
     if p["kind"] == "home":
-        out += [to_md(p["note"]), ""]
+        out += [f"- {k}: {v}" for k, v in p["hero_facts"]] + [""]
         out += [f"## {p['compare_heading']}", ""]
         for key in p["compare_rows"]:
             out.append(f"- {key}: " + "; ".join(f"{a['name']}: {a['compare'][key]}" for a in APPS))
@@ -667,7 +703,8 @@ def build() -> None:
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
-    shutil.copytree(STATIC, OUT, dirs_exist_ok=True)
+    # *.webp.json are provenance sidecars written by `impeccable embed-prompt`; they stay in the repo, not on the site.
+    shutil.copytree(STATIC, OUT, dirs_exist_ok=True, ignore=shutil.ignore_patterns("*.webp.json"))
     for p in PAGES.values():
         f = out_file(p)
         f.parent.mkdir(parents=True, exist_ok=True)
@@ -708,6 +745,7 @@ IDENTITY = [
     (r"\b(?:unbiased|impartial)\b", "this is not an independent guide"),
     (r"\bwe (?:tested|reviewed|compared|picked|ranked)\b", "no review voice"),
     (r"\bour (?:picks|favou?rites|top)\b", "no review voice"),
+    (r"(?<![\w-])awesome(?![\w-])", "marketing adjective (the site name is the only place for it)"),
 ]
 # Humanizer rules (SITE-SPEC.md, "Metin kuralları"; skill://humanizer).
 HUMANIZER = [
@@ -741,6 +779,7 @@ class Doc(HTMLParser):
         self.anchors: list[dict] = []
         self.scripts: list[tuple] = []
         self.ld: list[str] = []
+        self.inline_js: list[str] = []
         self.ids: set[str] = set()
         self.tags: dict[str, int] = {}
         self.parts: list[str] = []
@@ -749,6 +788,7 @@ class Doc(HTMLParser):
         self._h: list | None = None
         self._a: dict | None = None
         self._ld: list | None = None
+        self._js: list | None = None
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -778,6 +818,8 @@ class Doc(HTMLParser):
             self._skip += 1
             if a.get("type") == "application/ld+json":
                 self._ld = []
+            elif not a.get("src"):
+                self._js = []
         elif tag == "style":
             self._skip += 1
 
@@ -796,6 +838,9 @@ class Doc(HTMLParser):
             if self._ld is not None:
                 self.ld.append("".join(self._ld))
                 self._ld = None
+            if self._js is not None:
+                self.inline_js.append("".join(self._js))
+                self._js = None
         elif tag == "style":
             self._skip -= 1
 
@@ -804,6 +849,9 @@ class Doc(HTMLParser):
             self.title += data
         if self._ld is not None:
             self._ld.append(data)
+            return
+        if self._js is not None:
+            self._js.append(data)
             return
         if self._skip:
             return
@@ -928,9 +976,23 @@ def check() -> int:
         for a, b in zip(levels, levels[1:]):
             if b > a + 1:
                 err(label, f"heading level jumps from h{a} to h{b}")
+        want_src = GA_SRC.format(SITE["ga_id"]) if SITE.get("ga_id") else None
+        ga_scripts = 0
         for t, src in d.scripts:
-            if t != "application/ld+json" or src:
+            if t == "application/ld+json" and not src:
+                continue
+            if t is None and src and src == want_src:
+                ga_scripts += 1
+            elif t is None and not src:
+                continue  # inline body is compared with the Google tag snippet below
+            else:
                 err(label, f"script not allowed: type={t} src={src}")
+        want_js = " ".join(ga_inline(SITE["ga_id"]).split()) if SITE.get("ga_id") else None
+        for js in d.inline_js:
+            if " ".join(js.split()) != want_js:
+                err(label, f"script not allowed: inline script differs from the Google tag snippet: {' '.join(js.split())[:70]}")
+        if SITE.get("ga_id") and (ga_scripts != 1 or len(d.inline_js) != 1):
+            err(label, "Google tag snippet missing or duplicated")
         for bad in ("iframe", "form", "input", "button", "video", "audio", "object", "embed"):
             if d.tags.get(bad):
                 err(label, f"<{bad}> not allowed")
@@ -1026,8 +1088,11 @@ def check() -> int:
                                 err(label, f"SoftwareApplication missing {k}")
 
         # required content
-        if "Reblucky Software" not in d.text:
-            err(label, "page does not name Reblucky Software")
+        if SITE["publisher"] not in d.text:
+            err(label, f"page does not name {SITE['publisher']}")
+        made_by = dict(p["facts"]).get("Made by", "") if p["kind"] == "app" else dict(p.get("hero_facts", [])).get("Made by", "")
+        if p["kind"] in ("app", "home") and SITE["publisher"] not in made_by:
+            err(label, f"missing Made by row naming {SITE['publisher']}")
         if indexable(p) and "Last updated" not in d.text:
             err(label, "missing Last updated line")
         if p["kind"] == "app":
@@ -1061,6 +1126,7 @@ def check() -> int:
                 pass
         rules = ACCURACY + ACCURACY_PAGE.get(slug, []) + IDENTITY + HUMANIZER
         for where, text in texts.items():
+            text = text.replace(SITE["name"], " ")
             for a in allow:
                 text = text.replace(a, " ")
             for rx, why in rules:

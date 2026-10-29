@@ -32,7 +32,7 @@ Bu site bağımsız bir rehber ya da inceleme sitesi değil, üreticinin kendi v
 ## Capabilities and Constraints
 
 - Yalnız İngilizce. Sayfalar: `/`, `/streamova/`, `/trimo/`, `/airplay-receiver/`, `/about/`, `404.html`; ayrıca `llms.txt`, `llms-full.txt`, `sitemap.xml`, `robots.txt`.
-- Çerez, analitik, üçüncü taraf betik/font yok. JS yok.
+- Üçüncü taraf kaynak yalnız Google Analytics 4 etiketi (`gtag.js`, ölçüm kimliği `G-Z58G7P06BB`; kullanıcı kararı 2026-10-29). Etiket çerez koyar; About sayfasındaki "About this website" bölümü bunu söyler. Başka betik, üçüncü taraf font veya görsel yok; fontlar ve görseller aynı alan adından gelir (Barlow, SIL OFL, kendi sunucumuzda).
 - Uygulama sürüm numarası yazılmaz (bayatlar); sayfa tazeliği `UPDATED` ile belirtilir.
 - Doğruluk kuralları `SITE-SPEC.md` içinde; `build.py --check` ihlalde üretimi düşürür.
 - Ücret, gizlilik ve sınır cümleleri her uygulamanın kendi kaynağına bağlıdır; aralarında kopyalanmaz.
@@ -40,7 +40,8 @@ Bu site bağımsız bir rehber ya da inceleme sitesi değil, üreticinin kendi v
 ## Brand Commitments
 
 - Yayıncı adı: Reblucky Software. Uygulama adı **Streamova** (kullanıcı kararı 2026-09-22); "Stremova" yazılmaz.
-- Görsel dünya: Reblucky yayıncı sitesinin (rebluckysoftware.gitlab.io) lacivert paleti, Outfit yazı tipi ve kart ızgarası; kullanıcı tasarım onayında sabitledi.
+- Site adı: **Awesome Android TV Apps** (alan adı ve org ile aynı; `content/site.py` `name`/`brand`). Yayıncı adı metinde kalır, site adında geçmez.
+- Görsel dünya: "The Rating Plate" (kullanıcı kararı 2026-10-29: site Reblucky Software'in kendi sitesine benzemeyecek). Reblucky'nin lacivert paleti, Outfit yazı tipi, logosu ve kart ızgarası kullanılmaz; kendi işareti, Barlow ve açık gri kasa üzerinde etiket plakaları vardır. Ayrıntı `DESIGN.md` içinde.
 - Ses: sade, olgusal, satış dili yok; metinler `humanizer` kurallarına göre yazılır (çelişki kalıbı, zorlama üçlü, uzun tire, süslü başlık yok).
 - Bağımsızlık iddiası yok: "en iyi", "seçtiklerimiz", "inceledik" gibi ifadeler yazılmaz; diğer geliştiricilerin uygulamaları anılmaz.
 
@@ -54,7 +55,7 @@ Bu site bağımsız bir rehber ya da inceleme sitesi değil, üreticinin kendi v
 ## Product Principles
 
 1. Her olgu bir kaynağa bağlıdır; kaynaklar çelişirse mağaza metni ve gizlilik politikası kazanır.
-2. Üretici açıkça belli: her sayfada "Reblucky Software" görünür, About sayfası siteyi tanımlar.
+2. Üretici açıkça belli, ama görsel kimlikle değil metinle: her uygulama sayfasında "Made by" satırı, ana sayfada yayıncı plakası, altbilgi ve About sayfası "Reblucky Software" der; `build.py --check` eksikliği reddeder.
 3. Cevap önce: her sayfanın ilk iki cümlesi tek başına alıntılanabilir.
 4. Uygulamanın yapmadığı şey de yazılır (SMB1, DRM uygulamaları, RAM boşaltma, görüntü tabanlı altyazı).
 5. Bakım ucuz kalır: sürüm numarası yok, tek veri kaynağı (`content/`), tutarsızlığı derleme yakalar.

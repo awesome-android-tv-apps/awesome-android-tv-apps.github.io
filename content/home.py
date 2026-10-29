@@ -15,10 +15,10 @@ PAGE = {
         "from a NAS or USB drive, Trimo frees up storage and disables bloatware, and AirPlay Receiver "
         "mirrors an iPhone, iPad or Mac to the TV.</p>"
     ),
-    "note": (
-        "<p>The developer publishes this site. It describes only these three apps, with the same facts "
-        "as their Google Play listings.</p>"
-    ),
+    "hero_facts": [
+        ("Made by", "Reblucky Software"),
+        ("This site", "Published by the developer. It describes only these three apps."),
+    ],
     "tiles_heading": "The three apps",
     "play_label": "Get it on Google Play",
     "details_label": "Details",

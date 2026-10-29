@@ -60,6 +60,7 @@ PAGE = {
     },
     "facts": [
         ("What it is", "Storage cleaner and system-app manager for Android TV and Google TV."),
+        ("Made by", "Reblucky Software, the developer who also publishes this site."),
         ("Platform", "Android TV or Google TV on Android 5.0 or newer. Debloat actions need Android 8 or newer."),
         ("Controls", "TV remote only. No phone app, keyboard or computer is needed."),
         ("Price", "Measuring, scanning, deleting files, uninstalling apps, clearing caches, Restore and Undo are free. Disabling or removing system apps in Debloat is a one-time purchase in Google Play. There is no subscription."),

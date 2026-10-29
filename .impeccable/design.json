@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T17:13:31+00:00",
+  "title": "Design System: Awesome Android TV Apps",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Device Case Gray",
+        "canonical": "#e2e5e9",
+        "tonalRamp": [
+          "#090b0e",
+          "#232528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a2a5a9",
+          "#c6c9cd",
+          "#eceff3"
+        ]
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "Label Stock",
+        "canonical": "#fbfbfa",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252524",
+          "#424241",
+          "#616160",
+          "#828281",
+          "#a5a5a4",
+          "#c9c9c8",
+          "#eeeeed"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Panel Ink",
+        "canonical": "#14171c",
+        "tonalRamp": [
+          "#090b10",
+          "#22252b",
+          "#3f4248",
+          "#5e6168",
+          "#7f8389",
+          "#a1a5ac",
+          "#c5c9d0",
+          "#eaeff6"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "#2b3038",
+        "tonalRamp": [
+          "#070b12",
+          "#20252d",
+          "#3d424b",
+          "#5c626b",
+          "#7d838c",
+          "#9fa5af",
+          "#c3cad4",
+          "#e8effa"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#c3c9d2",
+        "tonalRamp": [
+          "#080b11",
+          "#21252c",
+          "#3d424a",
+          "#5c6269",
+          "#7d838b",
+          "#a0a5ae",
+          "#c4cad3",
+          "#e9eff8"
+        ]
+      },
+      "print-gray": {
+        "role": "neutral",
+        "displayName": "Print Gray",
+        "canonical": "#3d4550",
+        "tonalRamp": [
+          "#060b14",
+          "#1e2630",
+          "#3b434e",
+          "#59626e",
+          "#7a838f",
+          "#9da6b3",
+          "#c0cad7",
+          "#e5effd"
+        ]
+      },
+      "signal": {
+        "role": "secondary",
+        "displayName": "Signal Orange",
+        "canonical": "#ff5a1f",
+        "tonalRamp": [
+          "#1b0300",
+          "#441202",
+          "#732307",
+          "#a73508",
+          "#de470a",
+          "#fc7951",
+          "#fcb6a0",
+          "#ffe9e2"
+        ]
+      },
+      "signal-line": {
+        "role": "secondary",
+        "displayName": "Underline Orange",
+        "canonical": "#d9400a",
+        "tonalRamp": [
+          "#1d0200",
+          "#470e01",
+          "#771e01",
+          "#a8330f",
+          "#df4614",
+          "#fc7854",
+          "#fdb5a1",
+          "#fee9e4"
+        ]
+      },
+      "app-streamova": {
+        "role": "tertiary",
+        "displayName": "Streamova Cyan",
+        "canonical": "#37d3e7",
+        "tonalRamp": [
+          "#000e11",
+          "#002b31",
+          "#0a4b53",
+          "#0e6e79",
+          "#1293a2",
+          "#26b9cb",
+          "#49e0f4",
+          "#ccf8ff"
+        ]
+      },
+      "app-trimo": {
+        "role": "tertiary",
+        "displayName": "Trimo Amber",
+        "canonical": "#f4b63f",
+        "tonalRamp": [
+          "#120900",
+          "#332201",
+          "#573c03",
+          "#7e5a11",
+          "#a77918",
+          "#d5990c",
+          "#fbbd48",
+          "#feeccf"
+        ]
+      },
+      "app-airplay": {
+        "role": "tertiary",
+        "displayName": "AirPlay Blue",
+        "canonical": "#3da9ff",
+        "tonalRamp": [
+          "#000c1b",
+          "#022743",
+          "#064571",
+          "#0465a5",
+          "#0287db",
+          "#4bacfc",
+          "#9ecffc",
+          "#e2f0fe"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "rgba(20, 23, 28, 0.22)"
+      },
+      "rule-on-ink": {
+        "role": "neutral",
+        "displayName": "Rule On Ink",
+        "canonical": "rgba(255, 255, 255, 0.18)"
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff"
+      },
+      "mark-bar": {
+        "role": "neutral",
+        "displayName": "Mark Bar",
+        "canonical": "#f3f5f7"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home h1 and app page h1, Barlow Semi Condensed 700."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles in the left rail."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "FAQ questions and step names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text, Barlow 400, prose capped at 66ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase row names in plates and tables, chips, breadcrumbs."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Tile and card lift, button press."
+      },
+      {
+        "name": "lift",
+        "value": "translateY(-3px) over 220ms",
+        "purpose": "Hover and focus-within on tiles; 2px on more cards. Removed under prefers-reduced-motion."
+      },
+      {
+        "name": "lamp-on",
+        "value": "opacity 0.12 to 1 over 900ms, 150ms delay, ease-out-expo",
+        "purpose": "The one authored moment: the status lamp in the mark comes on at each page load. Off under prefers-reduced-motion (lamp simply on)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-narrow",
+        "value": "480px"
+      },
+      {
+        "name": "gallery-g4",
+        "value": "700px"
+      },
+      {
+        "name": "facts-label-column",
+        "value": "760px"
+      },
+      {
+        "name": "compare-stack",
+        "value": "859px"
+      },
+      {
+        "name": "section-rail",
+        "value": "900px"
+      },
+      {
+        "name": "hero-two-column",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Play button; fill is the owning app's accent, text always Panel Ink.",
+      "html": "<a class=\"ds-btn ds-btn-streamova\" href=\"#\">Get it on Google Play</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border:2px solid #14171c;border-radius:6px;color:#14171c;font:600 1.0625rem/1.2 Barlow,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:filter 160ms cubic-bezier(.16,1,.3,1),transform 160ms cubic-bezier(.16,1,.3,1)}.ds-btn:hover{filter:brightness(1.07)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid #14171c;outline-offset:3px}.ds-btn-streamova{background:#37d3e7}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary link to an official site; same keyline, no fill.",
+      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"#\">Streamova website</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border:2px solid #14171c;border-radius:6px;color:#14171c;font:600 1.0625rem/1.2 Barlow,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:filter 160ms cubic-bezier(.16,1,.3,1),transform 160ms cubic-bezier(.16,1,.3,1)}.ds-btn:hover{filter:brightness(1.07)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid #14171c;outline-offset:3px}.ds-btn-ghost{background:transparent}.ds-btn-ghost:hover{filter:none;background:#fbfbfa}"
+    },
+    {
+      "name": "Facts Plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Fixed-key rows with an uppercase label column, ending in the Updated date code.",
+      "html": "<dl class=\"ds-plate\"><div><dt>What it is</dt><dd>Video player for SMB shares and USB drives.</dd></div><div><dt>Made by</dt><dd>Reblucky Software</dd></div><div><dt>Updated</dt><dd>October 29, 2026</dd></div></dl>",
+      "css": ".ds-plate{margin:0;background:#fbfbfa;border:1.5px solid #14171c;border-radius:6px;font:400 1.0625rem/1.6 Barlow,system-ui,sans-serif;color:#14171c;max-width:560px}.ds-plate>div{display:grid;grid-template-columns:9.5rem minmax(0,1fr);gap:.15rem 2rem;padding:.8rem 1.1rem;border-top:1.5px solid rgba(20,23,28,.22)}.ds-plate>div:first-child{border-top:0}.ds-plate dt{color:#3d4550;font:600 .9rem/1.7 'Barlow Semi Condensed','Arial Narrow',sans-serif;letter-spacing:.07em;text-transform:uppercase}.ds-plate dd{margin:0}"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Static limit tag such as Android 7.0 or newer.",
+      "html": "<span class=\"ds-chip\">Android 7.0 or newer</span>",
+      "css": ".ds-chip{display:inline-block;padding:.15rem .6rem;border:1.5px solid #14171c;border-radius:4px;background:#fbfbfa;color:#14171c;font:600 .875rem/1.5 'Barlow Semi Condensed','Arial Narrow',sans-serif;letter-spacing:.05em;text-transform:uppercase}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Ink front panel: mark, stacked lockup, condensed links, current page underlined in Signal Orange.",
+      "html": "<header class=\"ds-header\"><span class=\"ds-lockup\"><svg class=\"ds-mark\" viewBox=\"0 0 48 48\" width=\"40\" height=\"40\" aria-hidden=\"true\"><rect width=\"48\" height=\"48\" rx=\"9\" fill=\"#2b3038\"/><rect x=\"9\" y=\"12\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#f3f5f7\"/><rect x=\"9\" y=\"21.5\" width=\"30\" height=\"5\" rx=\"2.5\" fill=\"#f3f5f7\"/><rect x=\"9\" y=\"31\" width=\"18\" height=\"5\" rx=\"2.5\" fill=\"#f3f5f7\"/><circle cx=\"35\" cy=\"33.5\" r=\"4\" fill=\"#ff5a1f\" class=\"ds-lamp\"/></svg><span><span class=\"ds-name\">Awesome</span><span class=\"ds-sub\">Android TV Apps</span></span></span><nav><a class=\"ds-link\" href=\"#\">Streamova</a><a class=\"ds-link ds-current\" href=\"#\">Trimo</a><a class=\"ds-link\" href=\"#\">About</a></nav></header>",
+      "css": ".ds-header{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:.7rem 1.25rem;background:#14171c;color:#fff}.ds-lockup{display:flex;align-items:center;gap:.8rem}.ds-mark{width:40px;height:40px;flex:none}.ds-name{display:block;font:700 1.5rem/1 'Barlow Semi Condensed','Arial Narrow',sans-serif;letter-spacing:.03em;text-transform:uppercase}.ds-sub{display:block;margin-top:.2rem;color:#c3c9d2;font:600 .8125rem/1.2 'Barlow Semi Condensed','Arial Narrow',sans-serif;letter-spacing:.12em;text-transform:uppercase}.ds-header nav{display:flex;gap:1.6rem}.ds-link{color:#fff;text-decoration:none;font:600 1.1875rem/1.3 'Barlow Semi Condensed','Arial Narrow',sans-serif;padding-block:.3rem;border-bottom:3px solid transparent}.ds-link:hover{border-bottom-color:#fff}.ds-link:focus-visible{outline:3px solid #fff;outline-offset:3px}.ds-current{border-bottom-color:#ff5a1f}@keyframes ds-lamp-on{from{opacity:.12}to{opacity:1}}.ds-lamp{animation:ds-lamp-on 900ms cubic-bezier(.16,1,.3,1) 150ms both}@media (prefers-reduced-motion:reduce){.ds-lamp{animation:none}}"
+    },
+    {
+      "name": "Launcher Tile",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "Home plate for one app: ink bezel around the TV banner, name, job line with swatch, blurb, pinned Play button.",
+      "html": "<article class=\"ds-tile\"><div class=\"ds-screen\"></div><h3>Streamova</h3><p class=\"ds-job\"><i></i>Play movies from your NAS</p><p>Plays video from SMB2 and SMB3 shares, USB drives and the TV's own storage.</p><p class=\"ds-actions\"><a class=\"ds-play\" href=\"#\">Get it on Google Play</a></p></article>",
+      "css": ".ds-tile{width:320px;padding:.9rem .9rem 1rem;background:#fbfbfa;border:1.5px solid #14171c;border-radius:6px;color:#14171c;font:400 1.0625rem/1.6 Barlow,system-ui,sans-serif;transition:transform 220ms cubic-bezier(.16,1,.3,1)}.ds-tile:hover{transform:translateY(-3px)}.ds-screen{aspect-ratio:16/9;background:#05070a;border:3px solid #14171c;border-radius:6px}.ds-tile h3{margin:1rem 0 0;font:700 1.95rem/1.05 'Barlow Semi Condensed','Arial Narrow',sans-serif}.ds-job{display:flex;align-items:center;gap:.55rem;margin:.4rem 0 .7rem;font-weight:600}.ds-job i{width:.8rem;height:.8rem;background:#37d3e7;border:1.5px solid #14171c;border-radius:2px}.ds-tile p{margin:0 0 .75rem}.ds-actions{padding-top:.9rem;border-top:1.5px solid rgba(20,23,28,.22)}.ds-play{display:inline-block;padding:.5rem .95rem;background:#37d3e7;border:2px solid #14171c;border-radius:6px;color:#14171c;font-weight:600;text-decoration:none}"
+    },
+    {
+      "name": "Step Key",
+      "kind": "custom",
+      "refersTo": "step-key",
+      "description": "Numbered key in the app accent followed by the step title and text.",
+      "html": "<div class=\"ds-step\"><span class=\"ds-key\">1</span><div><strong>Add a source</strong><p>Scan the network or type the address of your NAS.</p></div></div>",
+      "css": ".ds-step{display:grid;grid-template-columns:2.5rem 1fr;column-gap:1rem;max-width:420px;color:#14171c;font:400 1.0625rem/1.6 Barlow,system-ui,sans-serif}.ds-key{display:grid;place-items:center;width:2.5rem;height:2.5rem;background:#37d3e7;border:2px solid #14171c;border-radius:6px;font:700 1.35rem/1 'Barlow Semi Condensed','Arial Narrow',sans-serif}.ds-step strong{display:block;font:600 1.25rem/1.25 'Barlow Semi Condensed','Arial Narrow',sans-serif}.ds-step p{margin:.15rem 0 0;color:#3d4550}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Rating Plate",
+    "overview": "The site reads like the label on the back of a TV box. Every fact sits in a row with a label on the left and a value on the right, under a ruled line. The page is the cool gray device case, the content is near-white label stock held by an ink keyline, and the header and footer are the ink front and base of the unit. The only warmth is a signal orange, used the way a device uses a status lamp: rarely, and always meaning \"this is the thing to look at\".\n\nThe scene that forces light: a person on a phone or laptop in room light, checking what an app does before pressing install, with the remote in the other hand. Printed labels are light stock with black print, so the site is too. The apps' own TV screenshots are the only dark surfaces on the page besides the ink bookends, which makes them read as screens.\n\nIt refuses the dark navy page with a glowing triplet of cards, and it refuses the warm-cream editorial look. Type is condensed and engineered rather than friendly: Barlow Semi Condensed for names and labels, Barlow for reading.",
+    "keyCharacteristics": [
+      "One sheet of rows: section titles live in a left rail, content in the right column, 2px ink rules between rows.",
+      "Label-stock plates with a 1.5px ink keyline and a 6px corner; no shadows anywhere.",
+      "Uppercase condensed labels for row names; tabular figures for every number.",
+      "App banners and screenshots sit in a 3px ink bezel, like a TV screen.",
+      "One accent per app (cyan, amber, blue), spent only on the Play button, the step keys and a small swatch."
+    ],
+    "rules": [
+      {
+        "name": "The Rationed Signal Rule",
+        "body": "Signal orange is a lamp, not a theme. If it appears as a fill on the page or as text on gray, it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The App Owns Its Accent Rule",
+        "body": "A per-app accent colors only that app's Play button, step keys and job swatch. It never tints a heading, a border or a background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stamped And Read Rule",
+        "body": "Condensed type is for names, numbers and labels. Sentences are always Barlow regular.",
+        "section": "typography"
+      },
+      {
+        "name": "The Keyline Rule",
+        "body": "Elevation is declared once. A plate has a border or a shadow, never both; here it is always the border.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put every fact in a label-and-value row, and keep the row keys identical on all three app pages.",
+      "**Do** end a plate with the Updated date code so freshness is always visible.",
+      "**Do** keep the publisher in text: a Made by row on each plate, the home hero plate, the footer and the About page.",
+      "**Do** give every number tabular figures and every image `width`, `height` and real alt text.",
+      "**Do** put app art in a 3px ink bezel so it reads as a screen."
+    ],
+    "donts": [
+      "**Don't** use Signal Orange as a fill or as text on the gray page.",
+      "**Don't** add shadows, glows, gradients or blur; the keyline is the depth.",
+      "**Don't** put a per-app accent on headings, borders or backgrounds.",
+      "**Don't** use corner radii above 8px on content, or pill shapes outside chips.",
+      "**Don't** reuse another brand's logo, palette or typeface here; this site has its own mark and its own world.",
+      "**Don't** add scripts beyond the one Google Analytics tag, or load fonts and images from other hosts.",
+      "**Don't** write an eyebrow above a heading, an em dash, or bold run-in labels in copy."
+    ]
+  }
+}

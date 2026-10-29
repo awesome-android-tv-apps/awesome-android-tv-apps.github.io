@@ -2,17 +2,18 @@
 
 SITE = {
     "url": "https://awesome-android-tv-apps.github.io",
-    "name": "Reblucky Android TV Apps",
-    "brand": "Reblucky",
-    "brand_sub": "Android TV apps",
+    "name": "Awesome Android TV Apps",
+    "brand": "Awesome",
+    "brand_sub": "Android TV Apps",
     "publisher": "Reblucky Software",
     "publisher_url": "https://rebluckysoftware.gitlab.io/",
     "play_developer_url": "https://play.google.com/store/apps/developer?id=Reblucky+Software",
     "github_org_url": "https://github.com/awesome-android-tv-apps",
-    "logo": "/img/apple-touch-icon.png",
-    "brand_logo": "/img/reblucky-logo-192.webp",
+    "touch_icon": "/img/apple-touch-icon.png",
     "og_home": "/img/og-home.jpg",
-    "theme_color": "#050c2c",
+    "theme_color": "#14171c",
+    # Google Analytics 4 measurement ID. build.py renders the gtag.js snippet from it on every page.
+    "ga_id": "G-Z58G7P06BB",
     "repo_url": "https://github.com/awesome-android-tv-apps/awesome-android-tv-apps.github.io",
     "locale": "en_US",
     "lang": "en",
@@ -44,6 +45,7 @@ SITE = {
         "trimo.gitlab.io",
         "airplaymirrorreceiver.gitlab.io",
         "github.com",
+        "policies.google.com",
     ],
 }
 

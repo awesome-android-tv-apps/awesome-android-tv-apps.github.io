@@ -63,10 +63,10 @@ PAGE = {
             "h2": "About this website",
             "html": """
 <div class="prose">
-<p>This website sets no cookies, runs no analytics and loads no third-party scripts, fonts or images. It is a static site hosted on GitHub Pages, so GitHub's own privacy statement applies to its server logs. The source is public in the <a href="https://github.com/awesome-android-tv-apps/awesome-android-tv-apps.github.io">awesome-android-tv-apps</a> organization on GitHub.</p>
+<p>This website uses Google Analytics to count visits. The Google tag loads from Google's servers and sets cookies in your browser. Google receives usage data such as the pages you open, your approximate location and your device and browser type, and describes how it handles that data on its <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a> page. The site loads no other third-party scripts, fonts or images.</p>
+<p>It is a static site hosted on GitHub Pages, so GitHub's own privacy statement applies to its server logs. The source is public in the <a href="https://github.com/awesome-android-tv-apps/awesome-android-tv-apps.github.io">awesome-android-tv-apps</a> organization on GitHub.</p>
 </div>""",
         },
     ],
     "updated": "2026-10-29",
-    "lint_allow": ["runs no analytics"],
 }

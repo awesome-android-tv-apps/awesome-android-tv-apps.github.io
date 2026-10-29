@@ -1,12 +1,13 @@
-# Reblucky Android TV Apps sitesi: içerik kuralları
+# Awesome Android TV Apps sitesi: içerik kuralları
 
 Kaynak: `content/*.py` (kesin metin). `build.py` üretir; `python3 build.py --check` bu dosyadaki kuralları denetler ve ihlalde üretimi durdurur (CI aynı komutu çalıştırır).
 
 ## Kimlik (her sayfa)
 
-1. Siteyi Reblucky Software yayınlar ve bunu açıkça söyler: üst bilgi ve altbilgi, ana sayfadaki not, About sayfası, ana sayfa SSS'sindeki "Is this an independent review site?" ve `llms.txt` içindeki `Disclosure` satırı.
+1. Siteyi Reblucky Software yayınlar ve bunu görsel kimlikle değil metinle açıkça söyler: her uygulama plakasında "Made by" satırı, ana sayfadaki yayıncı plakası ("Made by"), altbilgi, About sayfası, ana sayfa SSS'sindeki "Is this an independent review site?" ve `llms.txt` içindeki `Disclosure` satırı. Plakada "Made by" satırı yoksa `build.py --check` üretimi durdurur.
 2. Bağımsız rehber ya da inceleme dili yoktur. Yazılmaz: `best`, `top-rated`, `number one`, `we tested/reviewed/compared/picked/ranked`, `our picks`, `unbiased`, olumsuz kullanım dışında `independent review/guide`. Diğer geliştiricilerin uygulamaları anılmaz, karşılaştırılmaz.
 3. Üç uygulama dışında içerik yok: Streamova, Trimo, AirPlay Receiver.
+4. Görsel kimlik Reblucky'den ayrıdır (kullanıcı kararı 2026-10-29): Reblucky logosu, lacivert palet ve Outfit yazı tipi kullanılmaz, Organization JSON-LD'sinde logo yoktur. Site adı "Awesome Android TV Apps" (alan adı ve GitHub org ile aynı) bir addır, iddia değildir; "awesome" kelimesi metinde başka yerde kullanılmaz. Görsel dünya `DESIGN.md` içindedir.
 
 ## Kaynaklar ve öncelik
 
@@ -64,7 +65,7 @@ Android TV, Google TV ve Google Play Google LLC markalarıdır; altbilgideki sat
 - `title` ≤ 65, `og:title` ≤ 60, `description` 140 ile 160 karakter. Her sayfada tek `h1`, başlık sırası atlamaz.
 - Her sayfada `canonical`, Open Graph, Twitter kartı, `theme-color`; tek JSON-LD `@graph`: Organization, WebSite, sayfa türü (CollectionPage, AboutPage, WebPage), uygulama sayfalarında SoftwareApplication ve BreadcrumbList, SSS olan sayfalarda FAQPage (sorular görünür başlıklarla birebir).
 - `sitemap.xml` yalnız indekslenebilir sayfaları ve her sayfanın `updated` tarihini `lastmod` olarak verir; `robots.txt` sitemap'i gösterir; 404 `noindex`.
-- JS, çerez, analitik, iframe, form ve üçüncü taraf kaynak yok. Harici bağlantılar yalnız `content/site.py` içindeki `allowed_hosts` listesine gider.
+- Tek betik istisnası Google Analytics 4: `gtag.js`, ölçüm kimliği `content/site.py` `ga_id` (G-Z58G7P06BB). Etiket her sayfanın `<head>` içinde Google'ın verdiği haliyle durur; `build.py --check` yalnız bu iki betiği (async `src` ve satır içi başlatma) ile JSON-LD'yi kabul eder, başka betiği, eksik ya da çift etiketi reddeder. Etiket çerez koyar: About sayfasındaki "About this website" bölümü bunu söyler ve etiket değişirse aynı commit'te güncellenir. Başka JS, iframe, form, üçüncü taraf font ya da görsel yok. Harici bağlantılar yalnız `content/site.py` içindeki `allowed_hosts` listesine gider.
 - Görsellerde `alt`, `width`, `height` (dosya oranıyla uyumlu), en çok 200 KB. HTML sayfası en çok 70 KB, CSS en çok 25 KB.
 - Görünür kelime: ana sayfa ≥ 380, uygulama sayfası ≥ 700, About ≥ 230. Doldurma yok.
 
@@ -95,3 +96,5 @@ Metin elle yazılır ve `build.py --check` şu kalıpları reddeder: uzun tire v
 GitHub org `awesome-android-tv-apps`, repo `awesome-android-tv-apps.github.io` (public), Pages kaynağı GitHub Actions (`.github/workflows/pages.yml`). Yerel önizleme: `python3 build.py && python3 -m http.server 8095 --bind 192.168.1.66 -d public`.
 
 Search Console: mülk `https://awesome-android-tv-apps.github.io/` dosya yöntemiyle doğrulanır (`static/google3d1276421bb1c9bf.html`). Bu dosya silinirse doğrulama düşer. Sitemap: `https://awesome-android-tv-apps.github.io/sitemap.xml`.
+
+Google Analytics: kimlik `G-Z58G7P06BB`. Yerel önizlemede ve ekran görüntüsü alırken etiketi engelleyin (`googletagmanager.com`, `google-analytics.com`), yoksa ölçümü kirletir. GitHub org görünen adı site adıyla aynı tutulur.

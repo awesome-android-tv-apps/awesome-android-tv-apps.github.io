@@ -60,6 +60,7 @@ PAGE = {
     },
     "facts": [
         ("What it is", "Video player and file browser for SMB2 and SMB3 network shares, USB drives and the TV's own storage."),
+        ("Made by", "Reblucky Software, the developer who also publishes this site."),
         ("Platform", "Android TV and Google TV on Android 7.0 or newer, operated with the TV remote."),
         ("Sources", "SMB2 and SMB3 shares on a NAS, a Windows, Mac or Linux computer or any Samba server; folders on a USB drive or the TV's internal storage."),
         ("Price", "Every session includes 5 minutes of free playback. A one-time purchase unlocks unlimited playback. There is no subscription."),

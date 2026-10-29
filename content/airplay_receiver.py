@@ -63,6 +63,7 @@ PAGE = {
     },
     "facts": [
         ("What it is", "AirPlay-compatible screen mirroring receiver for Android TV and Google TV."),
+        ("Made by", "Reblucky Software, the developer who also publishes this site."),
         ("Platform", "Android TV or Google TV on Android 7.0 or newer with Google Play. Phones and tablets cannot act as the receiver."),
         ("Sender", "An iPhone, iPad or Mac with Screen Mirroring in Control Center, on the same Wi-Fi network as the TV. Nothing to install on the Apple device."),
         ("Quality", "1080p, 1440p or 4K at 30 or 60 FPS, chosen in Quick Settings."),
